@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bili Transcript Studio</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="workspace">
+        <header class="topbar">
+          <div>
+            <h1>Bili Transcript Studio</h1>
+            <p>本地模型生成 B 站视频逐字稿</p>
+          </div>
+          <button id="refreshBtn" class="icon-button" title="刷新任务">↻</button>
+        </header>
+
+        <form id="jobForm" class="panel">
+          <label class="url-field">
+            <span>视频链接</span>
+            <input
+              id="url"
+              name="url"
+              value="https://www.bilibili.com/video/BV18V411m76n"
+              placeholder="https://www.bilibili.com/video/BV..."
+              required
+            />
+          </label>
+
+          <div class="controls">
+            <label>
+              <span>模型</span>
+              <select id="model" name="model">
+                <option value="large-v3-turbo">large-v3-turbo</option>
+                <option value="large-v3">large-v3</option>
+                <option value="medium">medium</option>
+                <option value="small">small</option>
+              </select>
+            </label>
+            <label>
+              <span>语言</span>
+              <select id="language" name="language">
+                <option value="zh">中文</option>
+                <option value="">自动</option>
+                <option value="en">English</option>
+              </select>
+            </label>
+            <label>
+              <span>设备</span>
+              <select id="device" name="device">
+                <option value="auto">auto</option>
+                <option value="cpu">cpu</option>
+                <option value="cuda">cuda</option>
+              </select>
+            </label>
+            <label>
+              <span>分 P 上限</span>
+              <input id="maxParts" name="maxParts" type="number" min="1" placeholder="全部" />
+            </label>
+          </div>
+
+          <button class="primary" type="submit">开始转写</button>
+        </form>
+
+        <section class="jobs">
+          <div class="section-head">
+            <h2>任务</h2>
+            <span id="jobCount">0</span>
+          </div>
+          <div id="jobs"></div>
+        </section>
+      </section>
+    </main>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
+

@@ -1,0 +1,13 @@
+.venv/
+.cache/
+.env
+data/
+dist/
+build/
+__pycache__/
+*.pyc
+.DS_Store
+*.app/
+*.icns
+*.pdf
+六年级上册数学沪教版同步教学_逐字稿合集*.txt
