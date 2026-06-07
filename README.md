@@ -72,13 +72,25 @@ flowchart LR
 
 ## 安装
 
+macOS / Linux：
+
 ```bash
 python3 -m venv .venv
 .venv/bin/python -m pip install -U pip
 .venv/bin/python -m pip install -r requirements.txt
 ```
 
+Windows PowerShell：
+
+```powershell
+py -3.11 -m venv .venv
+.\.venv\Scripts\python -m pip install -U pip
+.\.venv\Scripts\python -m pip install -r requirements.txt
+```
+
 国内网络或已开启本机代理时，可以使用镜像：
+
+macOS / Linux：
 
 ```bash
 mkdir -p .cache/pip
@@ -88,10 +100,27 @@ PIP_CACHE_DIR=.cache/pip .venv/bin/python -m pip install -r requirements.txt \
   --retries 10 --timeout 60
 ```
 
+Windows PowerShell：
+
+```powershell
+.\.venv\Scripts\python -m pip install -r requirements.txt `
+  -i https://pypi.tuna.tsinghua.edu.cn/simple `
+  --trusted-host pypi.tuna.tsinghua.edu.cn `
+  --retries 10 --timeout 60
+```
+
 如需设置代理、模型缓存等参数：
+
+macOS / Linux：
 
 ```bash
 cp .env.example .env
+```
+
+Windows PowerShell：
+
+```powershell
+Copy-Item .env.example .env
 ```
 
 然后按需修改 `.env`。
@@ -99,6 +128,8 @@ cp .env.example .env
 ---
 
 ## 启动 Web UI
+
+macOS / Linux：
 
 ```bash
 bash scripts/run_app.sh
@@ -108,6 +139,12 @@ bash scripts/run_app.sh
 
 ```bash
 .venv/bin/python -m uvicorn app.main:app --host 127.0.0.1 --port 8787
+```
+
+Windows PowerShell：
+
+```powershell
+.\.venv\Scripts\python -m uvicorn app.main:app --host 127.0.0.1 --port 8787
 ```
 
 浏览器打开：
