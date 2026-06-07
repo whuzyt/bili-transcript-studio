@@ -3,3 +3,4 @@ uvicorn[standard]>=0.30
 yt-dlp>=2025.09.05
 faster-whisper>=1.1
 mlx-whisper>=0.4; platform_system == "Darwin" and platform_machine == "arm64"
+pillow>=12.0
