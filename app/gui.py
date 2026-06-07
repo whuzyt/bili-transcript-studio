@@ -184,34 +184,10 @@ class TranscriptStudio(tk.Tk):
         window = RoundedFrame(outer_shell, radius=14, fill=BG_CARD, outline=BORDER, outer_bg=BG_MAIN)
         window.grid(row=0, column=0, sticky="nsew")
         window.inner.columnconfigure(0, weight=1)
-        window.inner.rowconfigure(2, weight=1)
-
-        header = tk.Frame(window.inner, bg=BG_CARD, height=44)
-        header.grid(row=0, column=0, sticky="ew")
-        header.grid_propagate(False)
-        header.columnconfigure(0, weight=1)
-        header.columnconfigure(1, weight=1)
-        header.columnconfigure(2, weight=1)
-
-        dots = tk.Frame(header, bg=BG_CARD)
-        dots.grid(row=0, column=0, sticky="w", padx=18, pady=13)
-        for color in ("#FF5F56", "#FFBD2E", "#27C93F"):
-            dot = tk.Canvas(dots, width=12, height=12, bg=BG_CARD, highlightthickness=0, bd=0)
-            dot.create_oval(1, 1, 11, 11, fill=color, outline=color)
-            dot.pack(side=tk.LEFT, padx=(0, 8))
-
-        tk.Label(
-            header,
-            text="B站逐字稿转换工具",
-            bg=BG_CARD,
-            fg=MUTED,
-            font=app_font(13, "bold"),
-        ).grid(row=0, column=1, pady=12)
-
-        tk.Frame(window.inner, bg=BORDER, height=1).grid(row=1, column=0, sticky="ew")
+        window.inner.rowconfigure(0, weight=1)
 
         outer = tk.Frame(window.inner, bg=BG_CARD, padx=32, pady=30)
-        outer.grid(row=2, column=0, sticky="nsew")
+        outer.grid(row=0, column=0, sticky="nsew")
         outer.columnconfigure(0, weight=1)
         outer.rowconfigure(2, weight=1)
 
